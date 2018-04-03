@@ -4,6 +4,8 @@ install:
 script: true
 deploy:
   provider: script
-  script: bash netlifyctl --help
+  script:
+    - ls -al
+    - ./netlifyctl --help
   on:
     branch: master
