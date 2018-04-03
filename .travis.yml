@@ -1,6 +1,7 @@
 install:
   - wget --header='Accept:application/octet-stream' https://api.github.com/repos/netlify/netlifyctl/releases/assets/6273453 -O netlifyctl-linux-amd64-0.3.2.tar.gz
   - tar -xzvf netlifyctl-linux-amd64-0.3.2.tar.gz
+script: true
 deploy:
   provider: script
   script: bash netlifyctl --help
