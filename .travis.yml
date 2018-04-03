@@ -1,0 +1,8 @@
+install:
+  - wget https://api.github.com/repos/netlify/netlifyctl/releases/assets/6273453
+  - tar -xzvf netlifyctl-linux-amd64-0.3.2.tar.gz
+deploy:
+  provider: script
+  script: bash netlifyctl --help
+  on:
+    branch: master
