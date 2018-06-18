@@ -1,7 +1,7 @@
 install:
   - curl --user "$GITHUB_USER:$GITHUB_TOKEN" https://api.github.com/repos/netlify/netlifyctl/releases/latest
   - curl --user "$GITHUB_USER:$GITHUB_TOKEN" https://api.github.com/repos/netlify/netlifyctl/releases/latest | jq '.assets[] | select(.name | contains("netlifyctl-linux-amd64-0.4.0.tar.gz"))? | .browser_download_url'
-  - false && wget --header='Accept:application/octet-stream' --user=$GITHUB_USER:$GITHUB_TOKEN https://api.github.com/repos/netlify/netlifyctl/releases/assets/6273453 -O netlifyctl-linux-amd64-0.3.2.tar.gz
+  - true || wget --header='Accept:application/octet-stream' --user=$GITHUB_USER:$GITHUB_TOKEN https://api.github.com/repos/netlify/netlifyctl/releases/assets/6273453 -O netlifyctl-linux-amd64-0.3.2.tar.gz
   - wget https://github.com/netlify/netlifyctl/releases/download/v0.4.0/netlifyctl-linux-amd64-0.4.0.tar.gz -O /tmp/netlifyctl-linux-amd64-0.4.0.tar.gz
   - tar -xzvf /tmp/netlifyctl-linux-amd64-0.3.2.tar.gz
 script:
