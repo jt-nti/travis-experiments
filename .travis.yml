@@ -7,3 +7,12 @@ install:
 script:
   - ls -al
   - ./netlifyctl --help
+before_deploy:
+  - tar -C src -cvzf release-test.tgz .
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: "release-test.tgz"
+  skip_cleanup: true
+  on:
+    tags: true
